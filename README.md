@@ -1,4 +1,4 @@
-Code-Review MVP
+# Code-Review MVP
 
 ✨ Lightweight Automated Code Review Workflow
 
@@ -6,17 +6,17 @@ This project is a minimal, working code review assistant. It automatically fixes
 
 ⸻
 
-🚀 Features
-• Auto-fix on save/commit with ESLint + Prettier + Husky.
-• PR checks via GitHub Actions (runs lint + format check).
-• Fast setup — add one workflow file and you’re done.
-• Project-only or reusable — works in your repo or as a reusable GitHub Action.
+## 🚀 Features
+
+• Auto-fix on save/commit with ESLint + Prettier + Husky.  
+• PR checks via GitHub Actions (runs lint + format check).  
+• Fast setup — add one workflow file and you’re done.  
+• Keeps repos clean — reviewers focus on logic, not style.
 
 ⸻
 
-📦 Quick Start (Local)
+## 📦 Quick Start (Local)
 
-<pre>
 ```bash
 # clone your repo
 git clone https://github.com/your-username/code-review-mvp.git
@@ -28,18 +28,16 @@ npm install
 # enable husky (for pre-commit hooks)
 npx husky init
 ```
-</pre>
 
-    •	Save a file → Prettier formats automatically.
-    •	Commit → Husky + lint-staged auto-fix small issues.
+• Save a file → Prettier formats automatically.  
+• Commit → Husky + lint-staged auto-fix small issues.
 
 ⸻
 
-🔄 GitHub Action (PR Checks)
+## 🔄 GitHub Action (PR Checks)
 
-Add this workflow in .github/workflows/pr-quality.yml to run checks on pull requests:
+This workflow runs on every Pull Request:
 
-<pre>
 ```yaml
 name: PR Quality
 on: [pull_request]
@@ -55,33 +53,43 @@ jobs:
       - run: npm run lint
       - run: npm run format -- --check
 ```
-</pre>
-
-🧑‍💻 Example
-
-PR with messy code → ❌ fails checks.
-After auto-fix + push → ✅ passes, ready to merge.
-
-(Add screenshots or a short GIF here once you test it)
 
 ⸻
 
-🎯 Why This Matters
+## 🧑‍💻 Example
 
-Code reviews often waste time on small style issues. This workflow:
-• Reduces noise (no more “add a semicolon” comments).
-• Saves time for both authors and reviewers.
+**Failing PR (before):**  
+![PR failing](docs/pr-fail.png)
+
+**Passing PR (after):**  
+![PR passing](docs/pr-pass.png)
+
+_Local commits (Husky):_ When committing locally, Husky + lint-staged run Prettier/ESLint:  
+• Small issues (spacing, semicolons) → auto-fixed.  
+• Serious issues (like undefined variables) → commit blocked.
+
+⸻
+
+## 🎯 Why This Matters
+
+Code reviews often waste time on small style issues. This workflow:  
+• Reduces noise (no more “add a semicolon” comments).  
+• Saves time for both authors and reviewers.  
 • Keeps code clean and consistent across projects.
 
 ⸻
 
-📌 Roadmap
-• Reusable GitHub Action (uses: your-username/code-review-mvp@v1)
-• Simple Danger rule (warn if PR too big or missing description)
-• Optional TypeScript support (tsc --noEmit)
+## 📌 Roadmap
+
+- [x] Add ESLint + Prettier setup
+- [x] Add Husky + lint-staged pre-commit hooks
+- [x] Add GitHub Action for PR checks
+- [ ] Add reusable GitHub Action (uses: code-review-mvp@v1)
+- [ ] Add Danger rule (warn if PR too big or missing description)
+- [ ] Add optional TypeScript support (tsc --noEmit)
 
 ⸻
 
-📄 License
+## 📄 License
 
 MIT License © 2025 Luba Kaper
