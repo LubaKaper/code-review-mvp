@@ -1,4 +1,6 @@
-// eslint.config.cjs (ESLint v9 flat config)
+// eslint.config.cjs
+const globals = require('globals');
+
 module.exports = [
   {
     files: ['**/*.js'],
@@ -6,7 +8,10 @@ module.exports = [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: { browser: true, node: true },
+      globals: {
+        ...globals.node, // Node.js globals like console, process
+        ...globals.browser, // Browser globals like window, document
+      },
     },
     rules: {
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
