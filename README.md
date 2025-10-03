@@ -104,7 +104,6 @@ console.log('hello');
 **_Example (blocked commit):_**
 
 ```js
-// Before commit
 let foo = 42;
 console.log(bar); // ❌ ESLint error: 'bar' is not defined
 ```
