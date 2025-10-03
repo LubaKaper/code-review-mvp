@@ -86,25 +86,31 @@ This setup combines **Prettier** (for formatting) and **ESLint** (for code quali
 
 ```js
 // Before commit
-const arr = [1,2,3]
-console.log("hello")
+const arr = [1, 2, 3];
+console.log('hello');
 
 // After Prettier auto-fix
 const arr = [1, 2, 3];
 console.log('hello');
+```
 
 ### ESLint (checks for errors & best practices)
+
 - no-undef → blocks commits if you use variables that don’t exist
 - no-unused-vars → warns if you declare variables you never use
 - no-console → normally warns on console.log, but disabled in this setup
 - Basic JavaScript syntax validation (missing brackets, typos, etc.)
 
-Example (blocked commit):
+**_Example (blocked commit):_**
+
+```js
 // Before commit
 let foo = 42;
 console.log(bar); // ❌ ESLint error: 'bar' is not defined
+```
 
 In short:
+
 - Messy code → auto-formatted by Prettier before commit.
 - Broken code → blocked by ESLint until fixed.
 
@@ -123,6 +129,7 @@ Code reviews often waste time on small style issues. This workflow:
 
 Setting up automated code checks from scratch can be complicated.
 Without this repo, you would need to:
+
 - Install and configure ESLint, Prettier, Husky, and lint-staged separately.
 - Figure out the new ESLint v9 flat config format.
 - Write your own Husky pre-commit hooks and lint-staged rules.
@@ -130,6 +137,7 @@ Without this repo, you would need to:
 
 This repo saves you all that effort — it’s a ready-to-use **starter kit**.
 Just clone, run `npm install`, and you get:
+
 - Husky + lint-staged pre-commit checks
 - ESLint + Prettier config already set up
 - GitHub Action workflow for PR quality
@@ -138,12 +146,12 @@ Just clone, run `npm install`, and you get:
 
 ## 🔍 Before vs After
 
-| Situation         | Without This Workflow 😬                          | With This Workflow 🚀                                     |
-|-------------------|--------------------------------------------------|----------------------------------------------------------|
-| **Local commits** | Any code can be committed — even broken or messy. | Husky + lint-staged run Prettier/ESLint → auto-fix small issues, block bad commits. |
-| **Pull Requests** | Messy or broken code can be pushed and merged.    | GitHub Action runs lint + format checks → PRs must pass before merging. |
-| **Code reviews**  | Reviewers waste time on “fix spacing” or “add semicolon” comments. | Reviewers focus on logic and design, not style issues.    |
-| **Consistency**   | Code style varies by developer.                   | Prettier + ESLint enforce the same rules everywhere.      |
+| Situation         | Without This Workflow 😬                                           | With This Workflow 🚀                                                               |
+| ----------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| **Local commits** | Any code can be committed — even broken or messy.                  | Husky + lint-staged run Prettier/ESLint → auto-fix small issues, block bad commits. |
+| **Pull Requests** | Messy or broken code can be pushed and merged.                     | GitHub Action runs lint + format checks → PRs must pass before merging.             |
+| **Code reviews**  | Reviewers waste time on “fix spacing” or “add semicolon” comments. | Reviewers focus on logic and design, not style issues.                              |
+| **Consistency**   | Code style varies by developer.                                    | Prettier + ESLint enforce the same rules everywhere.                                |
 
 **In short: no more messy PRs — just clean, consistent code.**
 
@@ -163,4 +171,7 @@ Just clone, run `npm install`, and you get:
 ## 📄 License
 
 MIT License © 2025 Luba Kaper
+
+```
+
 ```
