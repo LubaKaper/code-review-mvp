@@ -86,8 +86,8 @@ This setup combines **Prettier** (for formatting) and **ESLint** (for code quali
 
 ```js
 // Before commit
-const arr = [1, 2, 3];
-console.log('hello');
+// const arr = [1, 2, 3]
+// console.log('hello')
 
 // After Prettier auto-fix
 const arr = [1, 2, 3];
